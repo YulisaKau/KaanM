@@ -1,0 +1,10 @@
+body{
+    background-color: #b6ce8a;
+}
+[data-content]{
+    display: none;
+}
+    
+.active[data-content]{
+    display: block;
+}
