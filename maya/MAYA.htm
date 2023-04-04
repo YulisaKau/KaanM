@@ -1,0 +1,130 @@
+<html>
+<head>
+<title>MAYA</title>
+
+<style type="text/css">
+<!--
+.botones {
+	width: 460px;
+	margin: 0px;
+	padding: 0px;
+	list-style-type: none; 
+}
+.botones p {
+	float: right;
+	line-height: 30px;
+	background-image: url(imagenes/fondo_menu.png);
+	background-repeat: no-repeat;
+	background-position: center top;
+	height: 30px;
+	width: 95px;
+	text-align:center;
+}
+.botones p  {
+	display: block;
+	text-decoration: none;
+	color: #5A6F5A;
+	font-size: 14px;
+	font-weight: bold;
+	font-family:Verdana, sans-serif;
+}
+.botones p:hover {  
+	background-position: center bottom;
+}
+.botones p:hover a{  
+	color:#5A9F59;
+}
+
+[data-content]{
+display: none;
+}
+
+.active[data-content]{
+display: block;
+
+-->
+</style>
+
+<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+      
+	<script src="./script.js" defer></script>
+
+</head>
+<body bgcolor="#F9F9F9">
+<img src="k.png">
+<br>
+<br>
+
+<div class="botones">
+
+<table border="0" bordercolor="#000000" cellspacing="0" collspacing="0" align="left">
+<tr>
+<td>
+<table border="1" bordercolor="#FFFFFF" cellspacing="4" collspacing="4">
+<tr>
+<td>
+<p data-target="#inicio">Inicio</p>
+
+<br>
+<p data-target="#vocabulario">Vocabulario</p>
+<br>
+<br>
+<p data-target="#palabras">Mis palabras</p>
+<br>
+<br>
+</td>
+
+</table>
+</td>
+</table>
+
+</div>
+
+<p align="center">
+<div class="content">
+
+<div data-content id="inicio" class="active">
+Inicio
+
+</div>
+
+<div data-content id="vocabulario">
+
+
+<div class="botones">
+<table border="0" bordercolor="black" cellspacing="10" collspacing="10" align="center">
+<tr>
+<td>
+<p data-target="#animales">animales</p>
+</td>
+<td>
+<p data-target="#numero">numeros</p>
+</td>
+
+</table>
+
+</div>
+
+<div data-content id="animales">
+miss- gato
+
+</div>
+</div>
+
+
+
+</div>
+
+<div data-content id="numero">
+mis palabras
+
+</div>
+
+
+
+</body>
+</html>
+
+
