@@ -1,10 +1,31 @@
 body{
-    background-color: #b6ce8a;
+    background-color: #b2dafa;
 }
-[data-content]{
-    display: none;
+img{
+	width: 100%;
+	height: 110px;
 }
-    
-.active[data-content]{
-    display: block;
+div ul{
+	background-color: #84b6f4;
+	width: 20%;
+	height: 100%;
+}
+ul li:hover{
+	background-color: #5086c1;
+}
+li img{
+	width: 50px;
+	height: 50px;
+}
+li{
+	color: black;
+	list-style-type: none;
+    text-align: left;
+	padding-top: 15%;
+	font-weight: bold;
+}
+li:hover{
+	font-size: 20px;
+	color: white;
+	font-weight: bold;
 }
