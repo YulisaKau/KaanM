@@ -1,42 +1,31 @@
 body{
-    background-color: #b6ce8a;
+    background-color: #b2dafa;
 }
-
-.botones {
-	width: 460px;
-	margin: 0px;
-	padding: 0px;
-	list-style-type: none; 
+img{
+	width: 100%;
+	height: 110px;
 }
-.botones p {
-	float: right;
-	line-height: 30px;
-	background-image: url(imagenes/fondo_menu.png);
-	background-repeat: no-repeat;
-	background-position: center top;
-	height: 30px;
-	width: 95px;
-	text-align:center;
+div ul{
+	background-color: #84b6f4;
+	width: 20%;
+	height: 100%;
 }
-.botones p  {
-	display: block;
-	text-decoration: none;
-	color: #5A6F5A;
-	font-size: 14px;
+ul li:hover{
+	background-color: #5086c1;
+}
+li img{
+	width: 50px;
+	height: 50px;
+}
+li{
+	color: black;
+	list-style-type: none;
+    text-align: left;
+	padding-top: 15%;
 	font-weight: bold;
-	font-family:Verdana, sans-serif;
 }
-.botones p:hover {  
-	background-position: center bottom;
-}
-.botones p:hover a{  
-	color:#5A9F59;
-}
-
-[data-content]{
-display: none;
-}
-
-.active[data-content]{
-display: block;
+li:hover{
+	font-size: 20px;
+	color: white;
+	font-weight: bold;
 }
