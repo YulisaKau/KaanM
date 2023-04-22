@@ -19,7 +19,7 @@
   //Referencias del HTML  
   const btnPedir = document.querySelector('#btnPedir'),
    btnDetener = document.querySelector('#btnDetener'),
-   btnNuevo = document.querySelector('#btnNuevo'),
+   //btnNuevo = document.querySelector('#btnNuevo'),
    btnPedir2 = document.querySelector('#btnPedir2'),
    btnDetener2 = document.querySelector('#btnDetener2');
   
@@ -27,7 +27,7 @@
   puntosHTML = document.querySelectorAll('small');
 
   //Esta funcion inicializa el juego
-  const inicializarJuego = ( numJugadores = 2 ) => {
+  const inicializarJuego = ( numJugadores = 3 ) => {
     deck = crearDeck();
 
     puntosJugadores = [];
@@ -40,6 +40,9 @@
 
       btnPedir.disabled = false;
       btnDetener.disabled = false;
+
+      btnPedir2.disabled = true;
+      btnDetener2.disabled = true;
     
    }
   
@@ -103,37 +106,55 @@
 
  const determinarGanador = () =>{
 
-  const [ puntosMinimos, puntosComputadora ] = puntosJugadores;
+  const [ puntosMinimos, puntosComputadora, puntosMinimos2 ] = puntosJugadores;
 
 setTimeout (() => {
-    if( puntosComputadora === puntosMinimos ){
+    if( puntosComputadora === puntosMinimos && puntosMinimos2 === puntosComputadora){
       alert('nadie gana :(');
-  
-    }else if( puntosMinimos > 21){
-        alert('computadora gana')
-  
-    }else if( puntosComputadora >21){
-      alert('Jugador gana')
-  
-    } else{
-      alert('computadora gana')
+
+    } else if( puntosMinimos > 21 && puntosMinimos2 > 21 ){
+        alert('computadora gana');
+        //alert(puntosMinimos)
+        
+    } else if(puntosMinimos === 21 ){
+      alert('Jugador1 gana');
+      //alert(puntosMinimos);
+
+    }else if(puntosMinimos2 === 21){
+      alert('Jugador2 gana');
+    
+
+
+  }else if( puntosComputadora === puntosMinimos ){
+    alert('empate de jugador1 y computadora');
+
+  }else if( puntosComputadora === puntosMinimos2 ){
+    alert('empate de jugador2 y computadora');
+    
+  }else if(puntosMinimos === puntosMinimos2){
+    alert('empate de jugador1 y jugador2');
+
+    
+  }else{
+      alert('computadora gana');
+      //alert(puntosMinimos);
     }
-  
+
     }, 10);
   }
  
 
   //turno de la computadora
-  const turnoComputadora = ( puntosMinimos ) => {
+  const turnoComputadora = ( puntosMinimos, puntosMinimos2 ) => {
 
     let puntosComputadora = 0;
     do{
 
       const carta = pedirCarta();
-      puntosComputadora = acomularPuntos(carta, puntosJugadores.length - 1);
-      crearCarta(carta, puntosJugadores.length - 1 );
+      puntosComputadora = acomularPuntos(carta, puntosJugadores.length - 2);
+      crearCarta(carta, puntosJugadores.length - 2 );
         
-    }while(( puntosComputadora < puntosMinimos ) && (puntosMinimos <= 21) ){
+    }while(( puntosComputadora < puntosMinimos ) && (puntosMinimos <= 21) && (puntosComputadora < puntosMinimos2) && (puntosMinimos2 <= 21) ){
      determinarGanador();
     }
   }
@@ -152,14 +173,57 @@ setTimeout (() => {
     btnPedir.disabled = true;
     btnPedir.disabled = true;
     btnDetener.disabled = true;
-   turnoComputadora(puntosJugador)
+
+    btnPedir2.disabled = false;
+    btnDetener2.disabled = false;
+    
+   //turnoComputadora(puntosJugador)
   
     } else if( puntosJugador === 21 ){
       console.warn('21, genial!');
       btnPedir.disabled = true;
       btnDetener.disabled = true;
-      turnoComputadora( puntosJugador);
+      
+      btnPedir2.disabled = false;
+      btnDetener2.disabled = false;
+     
+      //turnoComputadora( puntosJugador);
     }
+  });
+
+  btnPedir2.addEventListener('click', () => {
+
+    const carta2 = pedirCarta();
+    const puntosJugador2 = acomularPuntos ( carta2, 2 );
+    crearCarta(carta2, 2);
+
+
+    if( puntosJugador2 > 21) {
+      console.warn('lo siento perdiste');
+     
+      btnPedir.disabled = true;
+      btnPedir.disabled = true;
+      btnDetener.disabled = true;
+  
+      btnPedir2.disabled = false;
+      btnDetener2.disabled = false;
+   
+     turnoComputadora(puntosJugador2)
+    
+      } else if( puntosJugador2 === 21 ){
+        console.warn('21, genial!');
+       
+        btnPedir.disabled = true;
+        btnDetener.disabled = true;
+        
+
+        btnPedir2.disabled = false;
+        btnDetener2.disabled = false;
+  
+        turnoComputadora( puntosJugador2 );
+        
+        
+      }
   });
 
  
@@ -170,8 +234,21 @@ setTimeout (() => {
   
     btnPedir2.disabled = false;
     btnDetener2.disabled = false;
+    
   
-    turnoComputadora (puntosJugadores)
+   // turnoComputadora (puntosJugadores);
+  });
+
+  btnDetener2.addEventListener('click', () => {
+    btnPedir.disabled = true;
+    btnDetener.disabled = true;
+
+    btnPedir2.disabled = true;
+    btnDetener2.disabled = true;
+    
+  
+    turnoComputadora ( puntosJugadores );
+
   });
   
 
